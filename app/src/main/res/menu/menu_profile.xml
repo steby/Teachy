@@ -1,23 +1,15 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".MainActivity">
+    tools:context="com.stebysaur.teachy.ProfileActivity">
 
 
     <item
         android:id="@+id/action_profile"
-        android:onClick="onClickProfile"
         android:orderInCategory="1"
         android:title="My Profile"
-        app:showAsAction="never"/>
-
-
-    <item
-        android:id="@+id/action_toTeach"
-        android:onClick="onClickTeach"
-        android:orderInCategory="99"
-        android:title="Teach"
         app:showAsAction="never" />
+
 
     <item
         android:id="@+id/action_logout"

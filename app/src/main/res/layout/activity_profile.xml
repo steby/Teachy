@@ -7,7 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.stebysaur.teachy.RegisterActivity">
+    tools:context="com.stebysaur.teachy.ProfileActivity">
 
     <TextView
         android:layout_width="wrap_content"
@@ -40,20 +40,6 @@
         android:inputType="textEmailAddress"
         android:textSize="20sp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Password"
-        android:textSize="20sp"
-        android:textStyle="bold" />
-
-    <EditText
-        android:id="@+id/etPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="********"
-        android:inputType="textPassword"
-        android:textSize="20sp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -62,13 +48,12 @@
         android:textSize="20sp"
         android:textStyle="bold" />
 
-    <Spinner
-        android:id="@+id/spSchools"
+    <EditText
+        android:id="@+id/etSchool"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
-        />
+        android:text="Cal Poly SLO"
+        android:textSize="20sp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -81,16 +66,9 @@
         android:id="@+id/etPhoneNumber"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="650 999 0650"
+        android:text="650 999 0650"
         android:inputType="phone"
         android:textSize="20sp" />
 
-    <Button
-        android:id="@+id/btnRegister"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:onClick="onClickRegister"
-        android:text="Register"
-        android:textSize="18sp" />
+
 </LinearLayout>

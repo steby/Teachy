@@ -51,6 +51,10 @@ public class ProfileActivity extends AppCompatActivity {
         startActivity(new Intent(this, LoginActivity.class));
     }
 
+    public void onClickHome(MenuItem item) {
+        startActivity(new Intent(this, MainActivity.class));
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

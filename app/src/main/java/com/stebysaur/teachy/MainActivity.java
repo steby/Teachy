@@ -3,18 +3,13 @@ package com.stebysaur.teachy;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btnLogout;
-    EditText etName, etEmail, etPassword, etSchool, etPhoneNumber;
+    EditText etName, etEmail, etSchool, etPhoneNumber;
     UserLocalStore userLocalStore;
 
 
@@ -23,7 +18,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btnLogout = (Button) findViewById(R.id.btnLogout);
         etName = (EditText) findViewById(R.id.etName);
         etEmail = (EditText) findViewById(R.id.etEmail);
         etSchool = (EditText) findViewById(R.id.etSchool);

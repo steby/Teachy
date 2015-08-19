@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.telephony.TelephonyManager;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -30,6 +29,7 @@ public class RegisterActivity extends AppCompatActivity {
         spSchools = (Spinner) findViewById(R.id.spSchools);
         etPhoneNumber = (EditText) findViewById(R.id.etPhoneNumber);
 
+
         //Adapter for Schools Spinner
         ArrayAdapter<CharSequence> spAdapter = ArrayAdapter.createFromResource(this,
                 R.array.schools_supported, android.R.layout.simple_spinner_item);
@@ -37,7 +37,7 @@ public class RegisterActivity extends AppCompatActivity {
         spSchools.setAdapter(spAdapter);
 
         //Auto obtain phone number
-        TelephonyManager tMgr = (TelephonyManager)this.getSystemService(Context.TELEPHONY_SERVICE);
+        TelephonyManager tMgr = (TelephonyManager) this.getSystemService(Context.TELEPHONY_SERVICE);
         etPhoneNumber.setText(tMgr.getLine1Number());
 
     }
@@ -48,8 +48,6 @@ public class RegisterActivity extends AppCompatActivity {
                 etPassword.getText().toString(),
                 spSchools.getSelectedItem().toString(),
                 etPhoneNumber.getText().toString());
-
-        Log.d("REGISTER", toRegister.toString());
 
         registerUser(toRegister);
     }

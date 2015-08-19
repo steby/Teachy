@@ -9,11 +9,12 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity">
 
+
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Appointments?"
+        android:gravity="center"
+        android:text="No sessions scheduled"
         android:textSize="20sp"
         android:textStyle="bold" />
 

@@ -10,7 +10,6 @@ public class MainActivity extends AppCompatActivity {
 
     UserLocalStore userLocalStore;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void onClickTeach(MenuItem item) {
-
+        startActivity(new Intent(this, TeachActivity.class));
     }
 
 

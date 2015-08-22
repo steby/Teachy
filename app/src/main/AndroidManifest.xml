@@ -47,6 +47,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.stebysaur.teachy.MainActivity" />
         </activity>
+        <activity
+            android:name=".SetUpTeachActivity"
+            android:label="@string/title_activity_set_up_teach"
+            android:parentActivityName=".TeachActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.stebysaur.teachy.TeachActivity" />
+        </activity>
     </application>
 
 </manifest>

@@ -26,8 +26,9 @@ public class LoginActivity extends AppCompatActivity {
     public void onClickLogin(View view) {
         User user = new User(etEmail.getText().toString(), etPassword.getText().toString());
 
-        ServerRequest serverRequest = new ServerRequest(this);
-        serverRequest.fetchUserDataInBackground(user, new GetUserCallback() {
+
+        MongoRequest mongoRequest = new MongoRequest(this);
+        mongoRequest.loginUserInBackground(user, new GetUserCallback() {
             @Override
             public void done(User returnedUser) {
                 if (returnedUser == null) {

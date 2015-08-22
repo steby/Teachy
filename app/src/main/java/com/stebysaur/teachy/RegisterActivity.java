@@ -53,8 +53,8 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void registerUser(User registerUser) {
-        ServerRequest serverRequest = new ServerRequest(this);
-        serverRequest.storeUserDataInBackground(registerUser, new GetUserCallback() {
+        MongoRequest mongoRequest = new MongoRequest(this);
+        mongoRequest.registerUserInBackground(registerUser, new GetUserCallback() {
             @Override
             public void done(User returnedUser) {
                 startActivity(new Intent(RegisterActivity.this, LoginActivity.class));

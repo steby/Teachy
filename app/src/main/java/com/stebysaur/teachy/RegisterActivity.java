@@ -60,5 +60,7 @@ public class RegisterActivity extends AppCompatActivity {
                 startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
             }
         });
+
+        //TODO: can preload email for user at login screen after registering
     }
 }

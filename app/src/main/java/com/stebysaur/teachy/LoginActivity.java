@@ -26,7 +26,6 @@ public class LoginActivity extends AppCompatActivity {
     public void onClickLogin(View view) {
         User user = new User(etEmail.getText().toString(), etPassword.getText().toString());
 
-
         MongoRequest mongoRequest = new MongoRequest(this);
         mongoRequest.loginUserInBackground(user, new GetUserCallback() {
             @Override
@@ -38,9 +37,6 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
-
-        userLocalStore.storeUserData(user);
-        userLocalStore.setLoggedInStatus(true);
     }
 
     public void onClickRegister(View view) {

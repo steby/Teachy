@@ -64,10 +64,9 @@ public class MongoRequest {
             } else {
                 Document retDoc = iterable.first();
 
-                User returnedUser = new User(retDoc.getString("name"),
+                return new User(retDoc.getString("name"),
                         user.email, user.password, retDoc.getString("school"),
-                        retDoc.getString("phone"));
-                return returnedUser;
+                        retDoc.getString("phone"), retDoc.getBoolean("isTeacher"));
             }
         }
 

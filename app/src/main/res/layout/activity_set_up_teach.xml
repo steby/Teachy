@@ -1,4 +1,4 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,9 +8,125 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.stebysaur.teachy.SetUpTeachActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Placeholder Name"
+            android:textSize="24sp" />
+
+        <Spinner
+            android:id="@+id/spMajors"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="Coursework you teach"
+            android:textSize="20sp" />
+
+        <EditText android:id="@+id/etCourseList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter courses you can tutor here\n\n\n\n\n"
+            android:minLines="4" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Available times"
+            android:textSize="20sp" />
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:columnCount="2">
+
+            <TextView android:text="Monday"
+                android:layout_columnSpan="2"/>
+
+            <CheckedTextView
+                android:id="@+id/ctvMon1000"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+                android:gravity="center"
+                android:text="10:00" />
+
+            <CheckedTextView
+                android:id="@+id/ctvMon1030"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+                android:gravity="center"
+                android:text="10:30" />
+
+            <CheckedTextView
+                android:id="@+id/ctvMon1100"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+                android:gravity="center"
+                android:text="11:00" />
+
+            <CheckedTextView
+                android:id="@+id/ctvMon1130"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+                android:gravity="center"
+                android:text="11:30" />
+
+            <CheckedTextView
+                android:id="@+id/ctvMon1200"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+                android:gravity="center"
+                android:text="12:00" />
+
+            <CheckedTextView
+                android:id="@+id/ctvMon1230"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+                android:gravity="center"
+                android:text="12:30" />
+
+            <CheckedTextView
+                android:id="@+id/ctvMon1300"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+                android:gravity="center"
+                android:text="13:00" />
+
+            <CheckedTextView
+                android:id="@+id/ctvMon1330"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+                android:gravity="center"
+                android:text="13:30" />
+        </GridLayout>
+
+        <Button
+            android:id="@+id/btnSaveTeachProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:onClick="onClickSaveTeachingProfile"
+            android:text="Save profile" />
+    </LinearLayout>
+
+</ScrollView>

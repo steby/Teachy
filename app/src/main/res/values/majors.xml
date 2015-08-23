@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="majors_supported">
+        <item>CPE - Computer Engineering</item>
+        <item>SE - Software Engineering</item>
+        <item>EE - Electrical Engineering</item>
+        <item>ME - Mechanical Engineering</item>
+    </string-array>
+</resources>

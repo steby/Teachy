@@ -1,5 +1,6 @@
 package com.stebysaur.teachy;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -13,7 +14,6 @@ public class TeachActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_teach);
         userLocalStore = new UserLocalStore(this);
     }
 
@@ -24,10 +24,17 @@ public class TeachActivity extends AppCompatActivity {
 
         if (!user.isTeacher) {
             setContentView(R.layout.fragment_not_teacher);
+        } else {
+            setContentView(R.layout.activity_teach);
         }
     }
 
-    public void onClickModifyProfile(View view) {
+    public void onClickSetUpTeachingProfile(View view) {
+        startActivity(new Intent(this, SetUpTeachActivity.class));
+    }
+
+
+    public void onClickModifyTeachingProfile(View view) {
 
 
 

@@ -19,6 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
             android:gravity="center"
+            android:onClick="onClickSetUpTeachingProfile"
             android:text="Set up your teaching profile now"
             android:textSize="32sp"
             android:textStyle="bold" />

@@ -68,10 +68,6 @@ public class SetUpTeachActivity extends AppCompatActivity {
     }
 
     public void onClickSaveTeachingProfile(View view) {
-        //TODO mongorequest and save deets
-        //save major
-        //save course list
-        //save avail times
 
         final UserLocalStore userLocalStore = new UserLocalStore(this);
         User user = userLocalStore.getLoggedInUserData();
@@ -109,8 +105,6 @@ public class SetUpTeachActivity extends AppCompatActivity {
                 startActivity(new Intent(SetUpTeachActivity.this, TeachActivity.class));
             }
         });
-
-        //TODO then startactivity and try to load it from mongo
     }
 
 

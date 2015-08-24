@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
@@ -12,6 +13,8 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 
 import org.bson.Document;
+
+import java.util.ArrayList;
 
 public class MongoRequest {
 
@@ -56,7 +59,6 @@ public class MongoRequest {
 
             FindIterable<Document> iterable = collection.find(findDoc);
 
-
             if (iterable.first() == null) {
                 Log.d("LOGIN QUERY", "NULL USER");
                 return null;
@@ -77,7 +79,6 @@ public class MongoRequest {
 
             super.onPostExecute(user);
         }
-
     }
 
 
@@ -122,6 +123,54 @@ public class MongoRequest {
             super.onPostExecute(aVoid);
             progressDialog.dismiss();
             userCallback.done(null);
+        }
+    }
+
+
+    public void loadTeachingProfileInBackground(User user, GetTeachProfileCallback teachProfileCallback) {
+        progressDialog.show();
+        new LoadTeachProfileInBackground(user, teachProfileCallback).execute();
+    }
+
+
+    public class LoadTeachProfileInBackground extends AsyncTask<User, Void, TeachProfile> {
+        User user;
+        GetTeachProfileCallback teachProfileCallback;
+
+        public LoadTeachProfileInBackground(User user, GetTeachProfileCallback teachProfileCallback) {
+            this.user = user;
+            this.teachProfileCallback = teachProfileCallback;
+        }
+
+        @Override
+        protected TeachProfile doInBackground(User... params) {
+            MongoClient mongoClient = new MongoClient(new MongoClientURI(MONGOLAB));
+            MongoDatabase database = mongoClient.getDatabase(DB_NAME);
+            MongoCollection<Document> collection = database.getCollection(USERS_COLLECTION);
+
+            Document findDoc = new Document("email", user.email);
+
+            FindIterable<Document> iterable = collection.find(findDoc);
+
+            if (iterable.first() == null) {
+                Log.d("TEACHPROFILE QUERY", "NULL USER");
+                return null;
+            } else {
+                Document retDoc = iterable.first();
+
+                Log.d("TEACH AVAILTIMES", retDoc.get("availTimes").toString());
+
+                //what did i store as array? lol
+                return new TeachProfile(retDoc.getString("major"), retDoc.getString("courses"),
+                        (ArrayList<String>) retDoc.get("availTimes"));
+            }
+        }
+
+        @Override
+        protected void onPostExecute(TeachProfile teachProfile) {
+            progressDialog.dismiss();
+            teachProfileCallback.done(teachProfile);
+            super.onPostExecute(teachProfile);
         }
     }
 

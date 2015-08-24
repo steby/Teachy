@@ -34,9 +34,11 @@
             android:text="Coursework you teach"
             android:textSize="20sp" />
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="250dp" />
+        <TextView
+            android:id="@+id/tvCourses"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="\n\n\n" />
 
         <TextView
             android:layout_width="match_parent"
@@ -45,9 +47,11 @@
             android:text="Available times"
             android:textSize="20sp" />
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="250dp" />
+        <TextView
+            android:id="@+id/tvAvailTimes"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="\n\n\n" />
 
         <Button
             android:id="@+id/btnModifyProfile"
@@ -56,6 +60,13 @@
             android:layout_gravity="center"
             android:onClick="onClickModifyTeachingProfile"
             android:text="Modify profile" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="This will erase previously set values!"
+            android:textSize="12sp" />
     </LinearLayout>
 
 </ScrollView>

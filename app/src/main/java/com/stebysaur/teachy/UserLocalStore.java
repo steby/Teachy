@@ -3,6 +3,7 @@ package com.stebysaur.teachy;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.widget.Toast;
 
 public class UserLocalStore {
 
@@ -22,6 +23,7 @@ public class UserLocalStore {
         spEditor.putString("password", user.password);
         spEditor.putString("school", user.school);
         spEditor.putString("phone", user.phone);
+        spEditor.putBoolean("isTeacher", user.isTeacher);
         spEditor.commit();
     }
 

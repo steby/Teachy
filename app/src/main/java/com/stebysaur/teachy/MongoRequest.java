@@ -13,7 +13,6 @@ import com.mongodb.client.MongoDatabase;
 
 import org.bson.Document;
 
-
 public class MongoRequest {
 
     ProgressDialog progressDialog;
@@ -117,6 +116,56 @@ public class MongoRequest {
             return null;
         }
 
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            progressDialog.dismiss();
+            userCallback.done(null);
+        }
+    }
+
+
+    public void saveTeachingProfileInBackground(User user, TeachProfile teachProfile,
+                                                GetUserCallback userCallback) {
+        progressDialog.setMessage("Saving your teaching profile...");
+        progressDialog.show();
+        new SaveTeachingProfileAsyncTask(user, teachProfile, userCallback).execute();
+    }
+
+    public class SaveTeachingProfileAsyncTask extends AsyncTask<Void, Void, Void> {
+        User user;
+        TeachProfile teachProfile;
+        GetUserCallback userCallback;
+
+        public SaveTeachingProfileAsyncTask(User user, TeachProfile teachProfile,
+                                            GetUserCallback userCallback) {
+            this.user = user;
+            this.teachProfile = teachProfile;
+            this.userCallback = userCallback;
+        }
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            MongoClient mongoClient = new MongoClient(new MongoClientURI(MONGOLAB));
+            MongoDatabase database = mongoClient.getDatabase(DB_NAME);
+            MongoCollection<Document> collection = database.getCollection(USERS_COLLECTION);
+
+
+            collection.updateOne(new Document("email", user.email),
+                    new Document("$set", new Document("isTeacher", true)));
+
+            collection.updateOne(new Document("email", user.email),
+                    new Document("$set", new Document("major", teachProfile.major)));
+
+            collection.updateOne(new Document("email", user.email),
+                    new Document("$set", new Document("courses", teachProfile.courses)));
+
+            collection.updateOne(new Document("email", user.email),
+                    new Document("$set", new Document("availTimes", teachProfile.availTimes)));
+
+            return null;
+        }
 
         @Override
         protected void onPostExecute(Void aVoid) {

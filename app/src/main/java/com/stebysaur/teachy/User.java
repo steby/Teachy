@@ -35,4 +35,16 @@ public class User {
         this.email = email;
         this.password = password;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", school='" + school + '\'' +
+                ", phone='" + phone + '\'' +
+                ", isTeacher=" + isTeacher +
+                '}';
+    }
 }
